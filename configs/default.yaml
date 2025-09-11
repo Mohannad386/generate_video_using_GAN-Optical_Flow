@@ -1,0 +1,19 @@
+# Default configuration for training and running the model
+
+data:
+  train_videos: "data_samples/train-videos/"
+  val_videos: "data_samples/val-videos/"
+  train_motion_fields: "data_samples/train-motion-fields/"
+  val_motion_fields: "data_samples/val-motion-fields/"
+
+logs: "logs/"
+checkpoints: "checkpoints/"
+
+training:
+  batch_size: 8
+  num_epochs: 100
+  learning_rate: 0.0002
+
+model:
+  generator: "networks/generator.py"
+  discriminator: "networks/discriminator.py"
