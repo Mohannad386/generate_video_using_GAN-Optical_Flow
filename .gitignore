@@ -1,0 +1,16 @@
+# Ignore large data and checkpoints
+data_samples/*
+!data_samples/README.md   # keep placeholder
+
+logs/*
+checkpoints/*
+*.pth
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
