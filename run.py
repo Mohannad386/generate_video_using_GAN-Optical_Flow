@@ -1,7 +1,6 @@
 import os
 import sys
-
-# إضافة المجلد الحالي إلى Python path
+import yaml
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
 import os
@@ -15,16 +14,23 @@ from networks.generator import Generator
 from train import train
 from utils import get_best_checkpoint
 
+with open("configs/default.yaml", "r") as f:
+    config = yaml.safe_load(f)
+
+dataset_path_default = config["data"]["train_videos"]
+motion_fields_path_default = config["data"]["train_motion_fields"]
+log_dir_default = config["logs"]
+checkpoint_default = config["checkpoints"]
 
 if __name__ == "__main__":
 
     parser = ArgumentParser()
     parser.add_argument(
-        "--dataset_path", default="iPER/train", help="path to dataset")
-    parser.add_argument("--motion_fields_path", default=r"iPER/train motion fields",
+        "--dataset_path", default=dataset_path_default, help="path to dataset")
+    parser.add_argument("--motion_fields_path", default=motion_fields_path_default,
                         help="path to motion fields if available")
-    parser.add_argument("--log_dir", default='log', help="path to log")
-    parser.add_argument("--checkpoint", default="checkpoints",
+    parser.add_argument("--log_dir", default=log_dir_default, help="path to log")
+    parser.add_argument("--checkpoint", default=checkpoint_default,
                         help="path to save or restore checkpoints")
     parser.add_argument("--preloaded_videos", default=True,
                         help="load all dataset to RAM, all videos must be of the same length")
