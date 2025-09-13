@@ -21,17 +21,16 @@ with open("configs/default.yaml", "r") as f:
 
 source_image = config["Test"]["source_image"]
 driven_video = config["Test"]["driving_video"]
-output_video = config["Test"]["output_video"]
 checkpoint = config["Test"]["checkpoint"]
 
 if __name__ == "__main__":
 
     parser = ArgumentParser()
-    parser.add_argument("--source_image", default="Test/s.jpg",
+    parser.add_argument("--source_image", default=source_image,
                         help="path to source image")
-    parser.add_argument("--driving_video", default="Test/d.mp4",
+    parser.add_argument("--driving_video", default=driven_video,
                         help="path to driving video")
-    parser.add_argument("--checkpoint", default="checkpoints/g_checkpoint375.pth",
+    parser.add_argument("--checkpoint", default=checkpoint,
                         help="path to generator checkpoint to use to make video")
     parser.add_argument("--image_size", default=128, help="size of image")
     parser.add_argument("--device", default="cuda", help="cpu or cuda")
