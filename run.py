@@ -8,11 +8,11 @@ import torch.optim as optim
 import torch
 from torch import nn
 from argparse import ArgumentParser
-from utils import get_logger
+from utils.utils import get_logger
 from networks.discriminator import Discriminator
 from networks.generator import Generator
 from train import train
-from utils import get_best_checkpoint
+from utils.utils import get_best_checkpoint
 
 with open("configs/default.yaml", "r") as f:
     config = yaml.safe_load(f)
