@@ -12,10 +12,14 @@ from torch import nn
 import os
 import csv
 from perceptual_loss import VGGLoss
-from utils import get_batch
-from utils import get_ready_batch
-from utils import make_video
+from utils.utils import get_batch
+from utils.utils import get_ready_batch
+from utils.utils import make_video
 
+with open("configs/default.yaml", "r") as f:
+    config = yaml.safe_load(f)
+
+loss_file_default = config["logs_losses"]
 
 def train(start_epoch,
           num_epochs,
@@ -83,7 +87,7 @@ def train(start_epoch,
     d_his = []
 
     #edit 1 
-    log_path = "log/losses_log.csv"
+    log_path = loss_file_default
     # تأكد من عدم إعادة الكتابة
     if not os.path.exists(log_path):
         with open(log_path, mode='w', newline='') as f:
