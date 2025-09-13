@@ -7,9 +7,9 @@ data:
   val_motion_fields: "data_samples/val-motion-fields/"
 
 test:
-  source_image: "samples/source.jpg"
-  driving_video: "samples/driving.mp4"
-  output_video: "results/result.mp4"
+  source_image: "Test/s.jpg"
+  driving_video: "Test/d.mp4"
+  output_video: "Test/result.mp4"
   checkpoint: "checkpoints/g_checkpoint.pth"
   image_size: 128
   device: "cuda"
@@ -26,6 +26,7 @@ training:
 model:
   generator: "networks/generator.py"
   discriminator: "networks/discriminator.py"
+
 
 
 
