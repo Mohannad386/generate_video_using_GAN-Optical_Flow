@@ -12,10 +12,17 @@ from torchvision.models.detection import KeypointRCNN_ResNet50_FPN_Weights
 import copy
 from argparse import ArgumentParser
 from networks.generator import Generator
-from utils import get_bounding_boxes
-from utils import motion_field_resize
-from utils import preprocess
+from utils.utils import get_bounding_boxes
+from utils.utils import motion_field_resize
+from utils.utils import preprocess
 
+with open("configs/default.yaml", "r") as f:
+    config = yaml.safe_load(f)
+
+source_image = config["Test"]["source_image"]
+driven_video = config["Test"]["driving_video"]
+output_video = config["Test"]["output_video"]
+checkpoint = config["Test"]["checkpoint"]
 
 if __name__ == "__main__":
 
