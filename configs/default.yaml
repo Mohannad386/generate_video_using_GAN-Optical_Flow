@@ -6,6 +6,14 @@ data:
   train_motion_fields: "data_samples/train-motion-fields/"
   val_motion_fields: "data_samples/val-motion-fields/"
 
+test:
+  source_image: "samples/source.jpg"
+  driving_video: "samples/driving.mp4"
+  output_video: "results/result.mp4"
+  checkpoint: "checkpoints/g_checkpoint.pth"
+  image_size: 128
+  device: "cuda"
+
 logs: "log/"
 logs_losses: "log/losses_log.csv"
 checkpoints: "checkpoints/"
@@ -18,5 +26,6 @@ training:
 model:
   generator: "networks/generator.py"
   discriminator: "networks/discriminator.py"
+
 
 
